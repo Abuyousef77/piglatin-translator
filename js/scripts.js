@@ -2,7 +2,8 @@
 var replaceVowels = function(sentenceWithVowels) {
   var vowels = ["a", "e", "i", "o", "u"];
 
-  sentenceWithVowels.toLowerCase();
+  sentenceWithVowels = sentenceWithVowels.toLowerCase();
+  alert(sentenceWithVowels);
   for(var i = 0; i < sentenceWithVowels.length; i++){
     for(var k = 0; k < vowels.length; k++){
       sentenceWithVowels = sentenceWithVowels.replace(vowels[k], "-");
