@@ -1,18 +1,30 @@
+// BUSINESS/BACKEND LOGIC
+var replaceVowels = function(sentenceWithVowels) {
+  var vowels = ["a", "e", "i", "o", "u"];
+
+  sentenceWithVowels.toLowerCase();
+  for(var i = 0; i < sentenceWithVowels.length; i++){
+    for(var k = 0; k < vowels.length; k++){
+      sentenceWithVowels = sentenceWithVowels.replace(vowels[k], "-");
+    };
+  };
+
+  return sentenceWithVowels;
+};
+
+// USER/FRONTEND LOGIC
 $(document).ready(function(){
   $(".main").submit(function(event){
     event.preventDefault();
-    var vowels = ["a", "e", "i", "o", "u"];
+
+    // Find and store user input
     var userSentence = $("#comment").val();
 
-    userSentence.toLowerCase();
-
-    for(var i = 0; i < userSentence.length; i++){
-      for(var k = 0; k < vowels.length; k++){
-        userSentence = userSentence.replace(vowels[k], "-");
-      };
-    };
+    var vowellessSentence = replaceVowels(userSentence);
+    // Hides the answer
     $("textarea").hide();
-    $(".outputtext").text(userSentence);
+
+    $(".outputtext").text(vowellessSentence);
   });
 });
 
